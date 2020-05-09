@@ -1,3 +1,4 @@
+package homejava;
 
 
 import java.io.IOException;
@@ -26,34 +27,32 @@ import javax.servlet.http.HttpServletResponse;
 //重啟伺服器是很大的事情,如果有人寶物交易,就掉了n
 //可以寫網頁html,但因為沒有指定為html,所以你h1根本無效,所以需要再輸出設定ContentType
 //java:玩得很細連CotentType都要設定
+//Servlert：第一次伺服器會自己物件實體後走建構式new出物件後自己根本沒有new,都是由他服務所以每次執行都是doGet被叫
+//Servlert:只有這個物件服務全世界
+//Servlet:在Servlet裡建構式比較沒有意義,因為從頭到尾都是他這物件服務大眾居多
 @WebServlet("/home1") //@WebServlet =>對外營業的名稱
 public class home1 extends HttpServlet {
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+	private int a; 
+	private static int b;
     public home1() {
         super();
         System.out.println("home1()");
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html , charset =UTF-8"); //設定瀏覽器格式
 		response.getWriter()//取得java.io.PrintWriter物件
 		.append("Served at: ")
 		//1.可以寫網頁html,但因為沒有指定為html,所以你h1根本無效
 		.append("<h1>Hello world </h1>");
+		//2.執行後一直是doGet被叫用
+//		System.out.println("doGet");
+		
+		//3.示範static,跟一班int,後加的值都一樣,代表玩的物件都是同一個這個Servlet
+		a++; b++;
+		System.out.println("doGet:" +"a:" + a + "b:" +b);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+	
 }
