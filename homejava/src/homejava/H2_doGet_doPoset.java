@@ -41,6 +41,12 @@ package homejava;
  * 6.為什麼我們可以在網頁輸入中文,因為contentType有用Utf-8
  * 7.網頁預設編碼是iso-8859-1
  * */
+
+/*u1.html輸入中文仍然可讀並輸出方式
+ * 要傳遞網路時String.getByte傳遞
+ * 一般來說如果妳網頁沒有設定 <meta charset="utf-8"/>  => 宣告html為UTF-8格式的話會是IOS-8859-1
+ * new String(value.getBytes("ISO-8859-1"),"UTF-8") =>取得IOS-8859-1 轉乘UTF-8
+ * */
 //javax.servlet.ServletRequest.getParameter(String arg0):取得指定參數的值(String參數名稱)(回傳值String )
 //javax.servlet.ServletRequest.getParameterNames():取得參數名子的物件(回傳)
 //java.util.Enumeration.nextElement(): //裡面還有元素嗎(回傳到String)
@@ -100,7 +106,12 @@ public class H2_doGet_doPoset extends HttpServlet {
 		while(emEnumeration.hasMoreElements()) {
 			String name = emEnumeration.nextElement();
 			String value = request.getParameter(name);//取得指定參數(指定的String參數名)
-			printWriter.write(name +":" + value +"<br>");
+//			printWriter.write(name +":" + value +"<br>");
+			
+			//7.取得IOS-88591格式,轉成Utf-8
+			String newValue = new String(value.getBytes("ISO-8859-1"),"UTF-8");
+			printWriter.write(name +":" + newValue +"<br>");
+
 		}
 		printWriter.flush();
 	}
