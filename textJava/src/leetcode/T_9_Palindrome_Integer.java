@@ -1,6 +1,6 @@
 package leetcode;
 /*
- * 
+ * 9. Palindrome Number
  * 目的：判斷一個整數是否是迴文數。回文數是指正序（從左向右）和倒序（從右向左）讀都是一樣的整數。
  * 邏輯參考https://ithelp.ithome.com.tw/articles/10160654
 Given an integer x, return true if x is palindrome integer.
