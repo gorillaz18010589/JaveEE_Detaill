@@ -1,5 +1,6 @@
 package leetcode;
 /*
+ * 
  * 取得字串陣列中,共同擁有的相同的連續最大單字,並且回傳,如果沒有回傳
  * Write a function to find the longest common prefix string amongst an array of strings.
 
