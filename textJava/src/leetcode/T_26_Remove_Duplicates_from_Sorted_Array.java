@@ -3,6 +3,7 @@ package leetcode;
 import java.util.HashMap;
 
 /*
+ * 
  * 目的：給你一組陣列,從這個陣列中刪除重複的值,最後只留下讀一物二的數,並回傳這個陣列的元素有幾個
  * 
  * Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
