@@ -26,6 +26,36 @@ Input: s = "pwwkew"
 Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+參數 ＝>String s = "pwwkew";
+沒重複增加前 t:[]
+沒重複增加後 t:[p]
+-----------
+沒重複增加前 t:[p]
+沒重複增加後 t:[p, w]
+-----------
+有重複刪除前 t:[p, w]
+有重複刪除後 t:[w]
+-----------
+有重複刪除前 t:[w]
+有重複刪除後 t:[]
+-----------
+沒重複增加前 t:[]
+沒重複增加後 t:[w]
+-----------
+沒重複增加前 t:[w]
+沒重複增加後 t:[w, k]
+-----------
+沒重複增加前 t:[w, k]
+沒重複增加後 t:[e, w, k]
+-----------
+有重複刪除前 t:[e, w, k]
+有重複刪除後 t:[e, k]
+-----------
+沒重複增加前 t:[e, k]
+沒重複增加後 t:[e, w, k]
+-----------
+ans:3
  * */
 public class T3_Longest_Substring_Without_Repeating_Characters {
 
@@ -44,17 +74,18 @@ public class T3_Longest_Substring_Without_Repeating_Characters {
 	        HashSet<Character> t = new HashSet<Character>();
 	        while (right < s.length()) {
 	            if (!t.contains(s.charAt(right))) {
+	                System.out.println("沒重複增加前 t:" + t.toString());
 	                t.add(s.charAt(right++));
 	                res = Math.max(res, t.size());
-	                System.out.println("t沒有包含陣列中的字元 t:"  + s.charAt(right++) +", res:" + res);
-	                System.out.println("----------");
+	                System.out.println("沒重複增加後 t:" + t.toString());
+	                System.out.println("-----------");
+
 	            } else {
+	                System.out.println("有重複刪除前 t:" + t.toString());
 	                t.remove(s.charAt(left++));
-	                System.out.println("t有包含刪除 t: " + s.charAt(left++));
-	                System.out.println("==========");
+	                System.out.println("有重複刪除後 t:" + t.toString());
+	                System.out.println("-----------");
 	            }
-	            System.out.println("沒進迴圈 s.charAt(left++):" + s.charAt(left++));
-	            System.out.println("~~~~~~~~~~");
 	        }
 	        return res;
 	    }
