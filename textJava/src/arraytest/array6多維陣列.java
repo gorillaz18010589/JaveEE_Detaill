@@ -19,9 +19,10 @@ public class array6多維陣列 {
 		System.out.println("從二維看下去有第2個房間:" + aray1[2].length +"個元素");  //4
 		System.out.println("--------------------");
 		
-		//2.多維陣列精華
+		//2.多維陣列
 		int[][] aray2 = new int [3][]; //一開始初始化三格房間
 		
+		//3.多維陣列進行二維給值
 		aray2[0] = new int[2]; //(0,0) (0,1)
 		aray2[1] = new int[2]; //(1,0) (1,1)
 		aray2[2] = new int[1]; //(2,0) 
