@@ -84,7 +84,7 @@ public class Poker_3_Shuffle {
 				for(int[] player : players) { //從二為陣列players眼睛看下去是一個一維陣列,共有四家尋訪
 					Arrays.sort(player); //進行理牌動作
 					for(int card: player) { //從四家裡面取得各家的牌
-						System.out.print(suits[card/13] +values[card%13]); //取得sutis[0-3的四家]配合values[0-12 的13張]
+						System.out.print(suits[card/13] +values[card%13]); //取得sutis[0-3的四家花色]配合values[0-12 A~13]
 					}
 					System.out.println("");
 				}
