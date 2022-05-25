@@ -19,7 +19,6 @@ public class array12_撲克牌攤牌發花色 {
 				//檢查是否重複
 				isRepeat = false;
 				for(int j=0; j<i; j++) {
-				
 					if(rad == poker[j]) {
 						isRepeat = true;
 						break;
